@@ -1,6 +1,10 @@
-FROM ubuntu:15.04
+FROM ubuntu:14.04
 
-ENV jasperVersion 6.0.1
+#libgssapi libkrb53 libgssapi-krb5-2
+RUN apt-get update && \
+    apt-get install -y libgssapi-krb5-2 --reinstall
+
+ENV jasperVersion 6.1.0
 
 ADD http://netcologne.dl.sourceforge.net/project/jasperserver/JasperServer/JasperReports%20Server%20Community%20Edition%20${jasperVersion}/jasperreports-server-cp-${jasperVersion}-linux-x64-installer.run /home/root/
 
